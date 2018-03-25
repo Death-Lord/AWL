@@ -1,0 +1,15 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block navbar_text %}
+    {% if user is not None %}
+    Hello, {{user.first_name}} {{user.last_name}}
+    <form class = 'form-inline' action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <input type="submit" name="submit" value="Log Out">
+    </form>
+    {%endif%}
+{% endblock %}
+
+{% block body %}
+<img src="{% static baseurl %}" alt="profile_pic" height="192" width="192">
+{% endblock %}

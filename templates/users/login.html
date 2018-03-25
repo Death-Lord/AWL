@@ -1,0 +1,44 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+	<link rel="stylesheet" type="text/css" href="css/1.css">
+  <style>
+    body{
+      background-color: #2c3e50;
+    }
+  </style>
+{% endblock %}
+{% block body %}
+<body background="{% static 'images/login.jpg'%}">
+<section>
+<div class="row">
+<div class="col-md-4" style="margin:0px;margin-left:70px;background-color: white;height: 620px">
+<br>
+<br>
+
+<center><h2 style="font-family: 'Alfa Slab One'"><b>LOG IN</b></h2></center>
+<form  action="{% url 'login_user' %}" method='POST'>
+  {% csrf_token %}
+<h4 style="text-align: center;"><font color="black">Want to create an account? </font><a href="{% url 'register_user' %}">Sign up for free</a></h4>
+<br>
+<div style="padding:20px;">
+<input type="text" placeholder="User Name" name="user_name" required style="border-style: none; border-bottom-style: dashed; font-size: 38px">
+</div>
+
+<div style="padding:20px;">
+<input type="password" placeholder="Password" name="password" required style="border-style: none; border-bottom-style: dashed; font-size: 38px"></div>
+<a href="{% url 'forgot_password' %}">Forgot Password?</a></h4>
+<br>
+    <div class="row">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <center><button type="submit" class="btn btn-primary btn-default" style="padding: 10px;border-radius:15px;"><font color="white" style="font-size: 25px">Log In</font></button>
+</center>
+<br>
+<br>
+    </div>
+</div>
+</form>
+</div>
+</section>
+{% endblock %}

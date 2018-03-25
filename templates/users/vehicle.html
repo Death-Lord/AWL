@@ -1,0 +1,84 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block head %}
+	<title>User | Logged In</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/side_nav.css' %}">
+{% endblock %}
+{% block body %}
+<body style="background: #2c3e50;">
+
+<!--
+
+	<header id="header" class="alt">
+				<div class="logo"><a href="index.html">Traffic <span> King</span></a></div>
+				<a href="#menu" class="toggle"><span>Menu</span></a>
+	</header>
+
+
+	<nav id="menu">
+		<ul class="links">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="generic.html">Generic</a></li>
+			<li><a href="elements.html">Elements</a></li>
+		</ul>
+	</nav>
+
+-->
+
+<section style="padding-top: 140px">
+	<div class="container">
+
+	<div class="col-md-6 text-center">
+
+	<img src="{% static 'images/tucson.jpg' %}" class="avatar">
+
+	</div>
+
+
+	<div class="col-md-6" >
+
+
+				<form id="defaultForm" method="post" class="form-horizontal" action="{% url 'vehicle' %}">
+          {% csrf_token %}
+
+					<div class="form-group">
+                        <label class="control-label" style="font-size: 20px; color: white">Vehicle Name: </label>
+                        <br /><br />
+                        <input type="text" class="form-control" name="name" placeholder="Vehicle Name" required style="height: 40px"/>
+
+                    </div>
+
+					<div class="form-group">
+                        <label class="control-label" style="font-size: 20px; color: white">Registration Number: </label>
+                        <br /><br />
+                        <input type="text" class="form-control" name="reg_no" placeholder="Eg:-PB01AT9876" required style="height: 40px"/>
+                    </div>
+
+					<div class="form-group">
+                        <label class="control-label" style="font-size: 20px; color: white">Pollution date:</label>
+                        <br /><br />
+                        <input type="date" class="form-control" name="date"  placeholder="Date" required style="height: 40px"/>
+                    </div>
+
+                    <br />
+            		<div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <button type="submit" class="btn btn-primary btn-lg" name="signup" value="Sign up" style="background-color: #2bcdc1; height: 45px; vertical-align: middle;">Submit</button>
+                        </div>
+                    </div>
+                </form>
+
+
+	</div>
+	</div>
+</section>
+
+<section>
+</section>
+
+{% endblock %}

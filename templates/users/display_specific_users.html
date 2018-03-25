@@ -1,0 +1,9 @@
+{% extends "users/base.html" %}
+{% block body %}
+</html>
+{% if user %}
+  <h1>{{user}}</h1>
+{% else %}
+  <h1>No user found</h1>
+{% endif %}
+{% endblock %}

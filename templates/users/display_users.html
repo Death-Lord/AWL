@@ -1,0 +1,12 @@
+{% extends "users/base.html" %}
+{% block body %}
+<h1>All the users registered on our site:- </h1>
+<br>
+{% if user %}
+  <ul>
+    {% for u in user %}
+    <li><a href="{% url 'display_detail' u.id %}">{{u.first_name}} {{u.last_name}}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% endblock %}
